@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Button, TextInput, Alert } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateProfile } from '../redux/store';
+import { updateProfile } from '../redux/profileSlice';  
 import { styles } from '../styles/globalStyles';
 
 const EditProfileScreen = ({ navigation }) => {
@@ -16,26 +16,30 @@ const EditProfileScreen = ({ navigation }) => {
     // Basic validation
     if (!name.trim() || !email.trim() || !bio.trim()) {
       Alert.alert('Error', 'All fields are required');
-      // console.log(setName);
       return;
     }
 
-    dispatch(updateProfile({
-      name,
-      email,
-      bio,
-    }));
+    try {
+      dispatch(updateProfile({
+        name: name.trim(),
+        email: email.trim(),
+        bio: bio.trim(),
+      }));
 
-    Alert.alert(
-      'Success',
-      'Profile updated successfully',
-      [
-        {
-          text: 'OK',
-          onPress: () => navigation.goBack(),
-        },
-      ]
-    );
+      Alert.alert(
+        'Success',
+        'Profile updated successfully',
+        [
+          {
+            text: 'OK',
+            onPress: () => navigation.goBack(),
+          },
+        ]
+      );
+    } catch (error) {
+      Alert.alert('Error', 'Failed to update profile');
+      console.error('Update profile error:', error);
+    }
   };
 
   return (
@@ -57,7 +61,7 @@ const EditProfileScreen = ({ navigation }) => {
           autoCapitalize="none"
         />
         <TextInput
-          style={styles.input}
+          style={[styles.input, { height: 100 }]}
           value={bio}
           onChangeText={setBio}
           placeholder="Bio"

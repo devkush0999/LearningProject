@@ -6,12 +6,15 @@ const initialState = {
   bio: 'Software Developer',
 };
 
-const profileSlice = createSlice({
+export const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
     updateProfile: (state, action) => {
-      return { ...state, ...action.payload };
+      const { name, email, bio } = action.payload;
+      state.name = name;
+      state.email = email;
+      state.bio = bio;
     },
   },
 });

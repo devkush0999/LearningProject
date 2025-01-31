@@ -1,12 +1,13 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text } from 'react-native';
+import { styles } from '../styles/globalStyles';
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>HomeScreen</Text>
+    <View style={styles.screen}>
+      <Text style={styles.title}>Welcome Home!</Text>
     </View>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;

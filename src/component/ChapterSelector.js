@@ -14,21 +14,21 @@ import {
 const chapters = [
   {
     id: '1',
-    name: 'Introduction to Algebra',
+    name: 'Algebra',
     number: 1,
     totalTopics: 8,
     completed: true,
   },
   {
     id: '2',
-    name: 'Linear Equations',
+    name: 'Linear Equ',
     number: 2,
     totalTopics: 12,
     completed: true,
   },
   {
     id: '3',
-    name: 'Quadratic Equations',
+    name: 'Quadratic Equ',
     number: 3,
     totalTopics: 10,
     completed: false,

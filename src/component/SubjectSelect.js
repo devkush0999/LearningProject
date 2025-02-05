@@ -19,7 +19,7 @@ const subjects = [
   { id: '6', name: 'Physics', icon: '⚡' },
   { id: '7', name: 'Chemistry', icon: '🧪' },
   { id: '8', name: 'Biology', icon: '🧬' },
-  { id: '9', name: 'Computer Science', icon: '💻' },
+  { id: '9', name: 'Computer ', icon: '💻' },
   { id: '10', name: 'Art', icon: '🎨' },
 ];
 

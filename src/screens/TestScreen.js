@@ -23,12 +23,12 @@ const TestScreen = ({navigation}) => {
       </Animated.View>
       <Animated.View entering={FadeInDown.duration(200).delay(200).springify()}>
           <View style={{ flexDirection:'row', paddingVertical:25, marginHorizontal: 25, paddingHorizontal:60}}>
-            <Text style={{fontSize: 22, fontWeight: 'bold' ,  paddingRight:25,paddingTop:8}}>Questions no: </Text>
+            <Text style={{fontSize: 22, fontWeight: 'bold' ,  paddingRight:25,paddingTop:4}}>Questions no: </Text>
             <TextInput
               style={{
                 width: 100,
                 borderWidth: 1,
-                padding: 10,
+                padding: 5,
                 borderRadius: 5,
                 marginBottom: 20,
                 justifyContent: 'center',
@@ -37,7 +37,7 @@ const TestScreen = ({navigation}) => {
               keyboardType="numeric"
               value={numQuestions}
               onChangeText={setNumQuestions}
-              placeholder="Enter number of questions"
+              placeholder="Enter number "
             />
           </View>
           <View>

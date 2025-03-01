@@ -91,10 +91,12 @@ const FlashCard = () => {
 
   const handleFlip = () => {
     Animated.timing(animatedValue, {
-      toValue: 180,
+      toValue: isFlipped ? 0 : 180,
       duration: 800,
       useNativeDriver: true
-    }).start();
+    }).start(() => {
+      setIsFlipped(prev => !prev); 
+    });
   };
 
   const resetCard = () => {
@@ -155,7 +157,14 @@ const FlashCard = () => {
           )}
         </Animated.View>
 
-        <Animated.View style={[styles.card, styles.cardBack, backAnimatedStyle]}>
+        <Animated.View 
+          style={[
+            styles.card, 
+            styles.cardBack, 
+            backAnimatedStyle, 
+            { pointerEvents: isFlipped ? 'auto' : 'none' }
+          ]}
+        >
           <Text style={styles.answerTitle}>Correct Answer:</Text>
           <Text style={styles.answer}>
             {questions[currentIndex].options[questions[currentIndex].correctAnswer]}
